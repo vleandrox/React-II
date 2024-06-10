@@ -24,7 +24,7 @@ function Home() {
     return (
         <>
             <Header></Header>
-            <Hero first={"Tecnologia"} second={"Renovada"}></Hero>
+            <Hero first={"Tecnologia"} second={"Renovada"}></Hero>    
             <main>
                 <div className={styles["container"]}>
                     <div className={styles["product-container"]} id="products">
