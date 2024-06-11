@@ -44,30 +44,14 @@
     gap: 10px;
     margin-bottom: 10px;
 }
-
 .policy-icon img {
     width: 20px;
     height: 20px;
 }
-
-.checkout-process {
-    /* display: flex;
-    flex-direction: column;
-    gap: 10px; */
-}
-
 .checkout-process .top {
     display: flex;
     margin-bottom: 10px;
 }
-
-/* .checkout-process .top input[type="number"] {
-    width: 50px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-} */
-
 .checkout-process .top input {
     height: 40px;
     border-radius: 10px;
@@ -78,14 +62,6 @@
     box-sizing: border-box;
 }
 .btn-primary {
-    /* background-color: #e53935;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; */
-
     width: 100%;
     background: #ff3b3c;
     color: white;
@@ -94,20 +70,10 @@
     height: 30px;
     border-radius: 10px;
 }
-
 .btn-primary:hover {
     background-color: #d32f2f;
 }
-
 .btn-outline {
-    /* background-color: transparent;
-    color: #e53935;
-    padding: 10px 20px;
-    border: 2px solid #e53935;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; */
-
     width: 100%;
     border: 1px solid #ff3b3c;
     color: #ff3b3c;
@@ -115,12 +81,10 @@
     height: 40px;
     border-radius: 10px;
 }
-
 .btn-outline:hover {
     background-color: #e53935;
     color: white;
 }
-
 .cart-btn {
     width: 100%;
     background: #ff3b3c;

@@ -1,4 +1,4 @@
-import styles from './Thumbs.module.css'
+// import styles from './Thumbs.module.css'
 import { useState, useEffect } from 'react'
 
 function Thumbs({ product }) {
@@ -6,10 +6,10 @@ function Thumbs({ product }) {
     useEffect(() => setThumb(product.images[0]), [product.id]);
     return (
         <>
-            <div className={styles["product-images-block"]}>
-                <div className={styles["thumbnail-container"]}>
+            <div className="flex flex-col-reverse gap-[20px] p-2 md:flex-row">
+                <div className="flex flex-row gap-[10px] md:flex-col md:flex-wrap justify-center cursor-pointer ">
                     {product.images.map((each) => (
-                        <img
+                        <img className="w-[80px] h-[80px] object-cover"
                             key={each}
                             src={each}
                             alt={product.title}
@@ -18,7 +18,7 @@ function Thumbs({ product }) {
                     ))}
                 </div>
                 <img
-                    className={styles["main-image"]}
+                    className="w-[300px] h-[300px] object-cover border border-gray-300 md:justify-center"
                     id="main-img"
                     src={thumb}
                     alt={product.title} />

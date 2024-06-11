@@ -1,14 +1,14 @@
-import styles from './Description.module.css'
+// import styles from './Description.module.css'
 
 function Description({ product }) {
     return (
         <>
-            <div className={styles["product-description-block"]}>
-                <h1 className={styles["title"]}>{product.title}</h1>
-                <form className={styles["selector"]}>
-                    <fieldset>
-                        <label className={styles["label"]} htmlFor="color">Color</label>
-                        <select id="color">
+            <div className="flex flex-col p-2 basis-1/4">
+                <h1 className="text-lg font-bold break-words pd-2">{product.title}</h1>
+                <form className="p-4">
+                    <fieldset className="flex justify-around items-center border rounded">
+                        <label className="font-bold py-2" htmlFor="color">Color</label>
+                        <select id="color" className="p-[5px] border rounded w-[80px]">
                             {product.colors.map((each) => (
                                 <option key={each} value="Silver">
                                     {each}
@@ -17,9 +17,9 @@ function Description({ product }) {
                         </select>
                     </fieldset>
                 </form>
-                <div className={styles["description"]}>
-                    <h1>{product.title}</h1>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+                <div className="font-bold">
+                    <h1 className='pb-4'>{product.title}</h1>
+                    <p className='text-justify'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
                         unde!</p>
                 </div>
             </div>
