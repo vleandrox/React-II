@@ -53,27 +53,35 @@ function Checkout({ product }: CheckoutProps) {
 
     return (
         <>
-            <div className={styles["product-checkout-block"]}>
-                <div className={styles["checkout-container"]}>
-                    <span className={styles["checkout-total-label"]}>Total:</span>
-                    <h2 id="price" className={styles["checkout-total-price"]}>$ {total}</h2>
-                    <p className={styles["checkout-description"]}>
+            <div className="flex basis-1/3 bg-slate-200 rounded">
+                <div className="flex flex-col p-6 border">
+                    <span className="font-bold text-lg pb-2">Total:</span>
+                    <h2 id="price" className="text-3xl color text-red-600 pb-2">$ {total}</h2>
+                    <p className="font-bold text-xs text-justify text-gray-600 pb-2">
                         Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$ 50711
                         haciendo la solicitud en AFIP.
                     </p>
-                    <ul className={styles["checkout-policy-list"]}>
-                        <li>
-                            <span className={styles["policy-icon"]}><img src="../truck.png" alt="Truck" /></span>
-                            <span className={styles["policy-desc"]}>Agrega el producto al carrito para conocer los costos de envío</span>
+                    <ul className="p-0 m-0 list-none pb-4">
+                        <li className="flex items-center">
+                            <span className="w-[30px] h-[30px] m-2">
+                                <img src="../truck.png" alt="Truck" />
+                            </span>
+                            <span className="font-bold text-sm p-1 text-justify">
+                                Agrega el producto al carrito para conocer los costos de envío
+                            </span>
                         </li>
-                        <li>
-                            <span className={styles["policy-icon"]}><img src="../plane.png" alt="Plane" /></span>
-                            <span className={styles["policy-desc"]}>Recibí aproximadamente entre 10 y 15 días hábiles, seleccionando envío normal</span>
+                        <li className="flex items-center">
+                            <span className="w-[30px] h-[30px] m-2">
+                                <img src="../plane.png" alt="Plane" />
+                            </span>
+                            <span className="font-bold text-sm p-1 text-justify">
+                                Recibí aproximadamente entre 10 y 15 días hábiles, seleccionando envío normal
+                            </span>
                         </li>
                     </ul>
                     <div className={styles["checkout-process"]}>
-                        <div className={styles["top"]}>
-                            <input
+                        <div className="flex mb-[10px]">
+                            <input className="h-[40px] w-[62px] mr-[10px] border rounded text-center "
                                 type="number"
                                 min="1"
                                 value={quantity}
@@ -82,7 +90,7 @@ function Checkout({ product }: CheckoutProps) {
                             />
                             <button
                                 type="button"
-                                className={button ? styles["remove-btn"] : styles["cart-btn"]}
+                                className={button ? "w-full bg-[#070707] text-white rounded" : "w-full bg-[#ff3b3c] text-white rounded"}
                                 onClick={manageCart}>
                                 {button ? "Remove from cart" : "Add to cart"}
                             </button>

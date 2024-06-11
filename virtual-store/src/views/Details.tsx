@@ -1,4 +1,4 @@
-import styles from './Details.module.css'
+// import styles from './Details.module.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import products from '../assets/products.js'
@@ -19,16 +19,16 @@ function Details() {
             <>
                 <Header></Header>
                 <main>
-                    <div className={styles["containerd"]}>
-                        <div className={styles["columns-container"]} id="details">
-                            {product && (
-                                <div id="details" className={styles["columns-container"]}>
+                    <div className="max-w-[1200px] mx-auto p-[20px]">
+                        {/* <div id="details" className=" "> */}
+                         {product && (
+                                <div id="details" className="flex flex-col gap-8 md:flex-row md:items-start items-center">
                                     <Thumbs product={product} />
                                     <Description product={product} />
                                     <Checkout product={product} />
                                 </div>
-                            )}
-                        </div>
+                            )} 
+                        {/* </div> */}
                         <OnSaleSlide></OnSaleSlide>
                     </div>
                 </main>

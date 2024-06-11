@@ -7,7 +7,12 @@
     display: flex;
     gap: 20px;
 }
-
+@media (max-width: 768px) {
+    .columns-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 /* ******************************************************************* */
 /* Bloque de imágenes de producto */
 /* .product-images-block {
@@ -171,13 +176,13 @@
 
 /* ******************************************************************* */
 /* Responsive */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .columns-container {
         flex-direction: column;
         align-items: center;
     }
 
-    /* .product-images-block {
+    .product-images-block {
         flex-direction: column-reverse;
         align-items: center;
     }
@@ -194,8 +199,8 @@
         justify-content: center;
         flex-wrap: wrap;
         
-    }    */
-}
+    }   
+} */
 
 /* **********************OTRO CODIGO ANTERIOR************************* */
 /* ******************************************************************* */
