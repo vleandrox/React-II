@@ -2,6 +2,8 @@ import styles from './Cart.module.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
+import CartCard from '../components/CartCard'
+import CartResume from '../components/CartResume'
 
 function Cart() {
     return (
@@ -10,7 +12,8 @@ function Cart() {
             <Hero first={"Tecnologia"} second={"Renovada"}></Hero>
             <main className={styles["main-cart"]}>
                 <div className={styles["cartproduct-container"]}>
-                    <div className={styles["product-list"]}>
+                    <CartCard title="iPad 14 pro" color="black" price="800000" image="https://i.postimg.cc/kX8PKZpq/ipad.jpg"></CartCard>
+                    {/* <div className={styles["product-list"]}>
                         <article className={styles["product-card"]}>
                             <img className={styles["product-img"]} src="https://i.postimg.cc/kX8PKZpq/ipad.jpg" alt="ipad" />
                             <div className={styles["product-info"]}>
@@ -44,8 +47,9 @@ function Cart() {
                             </div>
                             <strong className={styles["price"]}>AR$ $800000</strong>
                         </article>
-                    </div>
-                    <div className={styles["cart-resume"]}>
+                    </div> */}
+                    <CartResume total={800000}></CartResume>
+                    {/* <div className={styles["cart-resume"]}>
                         <div className={styles["cart-data"]}>
                             <h2 className={styles["cart-title"]}><span>Resumen </span><span>del </span><span>pedido</span></h2>
                             <div className={styles["cart-total"]}>
@@ -55,7 +59,7 @@ function Cart() {
                             <small className={styles["cart-tax"]}>Incluye impuesto PAIS y percepción AFIP.</small>
                         </div>
                         <button className={styles["cart-btn"]} id="buy" type="button">COMPRAR</button>
-                    </div>
+                    </div> */}
                 </div>
             </main>
             <Footer></Footer>
