@@ -4,15 +4,38 @@ import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import CartCard from '../components/CartCard'
 import CartResume from '../components/CartResume'
+import { useEffect, useState } from 'react'
 
 function Cart() {
+    const [productsOnCart, setProductsOnCart] = useState([]);
+    useEffect(() => {
+        if (localStorage.getItem("cart")) {
+            const products = JSON.parse(localStorage.getItem("cart"));
+            setProductsOnCart(products);
+        }
+    },[]);
+
     return (
         <>
             <Header></Header>
             <Hero first={"Tecnologia"} second={"Renovada"}></Hero>
             <main className={styles["main-cart"]}>
                 <div className={styles["cartproduct-container"]}>
-                    <CartCard title="iPad 14 pro" color="black" price="800000" image="https://i.postimg.cc/kX8PKZpq/ipad.jpg"></CartCard>
+                    <div className="flex flex-grow basis-[60%] flex-col gap-[20px]">
+                        {productsOnCart.map((each) => (
+                            <CartCard 
+                                key={each.id}
+                                id={each.id}
+                                title={each.title}
+                                image={each.images[0]}                                
+                                price={each.price}
+                                quantity={each.units}
+                                color={each.colors[0]} 
+                            />
+                        ))}
+                        {/* <CartCard title="iPad 14 pro" color="black" price="800000" image="https://i.postimg.cc/kX8PKZpq/ipad.jpg" /> */}
+                    </div>
+
                     {/* <div className={styles["product-list"]}>
                         <article className={styles["product-card"]}>
                             <img className={styles["product-img"]} src="https://i.postimg.cc/kX8PKZpq/ipad.jpg" alt="ipad" />

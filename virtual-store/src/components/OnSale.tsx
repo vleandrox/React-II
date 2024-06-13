@@ -53,21 +53,20 @@ export function OnSaleSlide() {
     return (
         <>
             <div className={styles["offer-container"]}>
-                <h2 className={styles["sales-title"]}>Ofertas de la semana</h2>
+                <h2 className="font-bold text-[30px] underline">Ofertas de la semana</h2>
                 <button className={styles["prev-offer-button"]} onClick={prevSlide} disabled={from === 0}> {'<'} </button>
-                <div className={styles["offer-product-container"]}>                    
+                <div className={styles["offer-product-container"]}>
                     {visibleProducts.map((each) => (
-                        <div className={styles["product-card"]}>
-                        <OnSaleCard
-                            key={each.id}
-                            id={each.id}
-                            title={each.title}
-                            price={each.price}
-                            color={each.colors[0]}
-                            image={each.images[0]}
-                        />
+                        <div className={styles["product-card"]} key={each.id}>
+                            <OnSaleCard 
+                                id={each.id}
+                                title={each.title}
+                                price={each.price}
+                                color={each.colors[0]}
+                                image={each.images[0]}
+                            />
                         </div>
-                    ))}                                        
+                    ))}
                 </div>
                 <button className={styles["next-offer-button"]} onClick={nextSlide} disabled={to >= onSaleProducts.length}>{'>'}</button>
                 {/* <div className={styles["slider-controls"]}>
