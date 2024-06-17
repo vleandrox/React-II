@@ -1,7 +1,9 @@
 // import styles from './Thumbs.module.css'
 import { useState, useEffect } from 'react'
+import ProductProp from '../interfaces/ProductProp';
 
-function Thumbs({ product }) {
+export default function Thumbs(props: ProductProp) {
+    const { product } = props
     const [thumb, setThumb] = useState(product.images[0] || "/mock1.jpg")
     useEffect(() => setThumb(product.images[0]), [product.id]);
     return (
@@ -57,4 +59,4 @@ function Thumbs({ product }) {
     )
 }
 
-export default Thumbs
+
