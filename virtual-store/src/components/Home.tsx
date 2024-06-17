@@ -6,6 +6,8 @@ import Footer from './Footer'
 import products from '../assets/products.js'
 import { OnSaleSlide } from './OnSale.js'
 import { useState } from 'react'
+import Product from '../interfaces/Product.js'
+
 
 function Home() {
     const [from, setFrom] = useState(0);
@@ -28,7 +30,7 @@ function Home() {
             <main>
                 <div className={styles["container"]}>
                     <div className={styles["product-container"]} id="products">
-                        {visibleProducts.map((each) => (
+                        {visibleProducts.map((each : Product) => (
                             <ProductCard
                                 key={each.id}
                                 id={each.id}

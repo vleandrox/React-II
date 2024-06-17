@@ -1,6 +1,8 @@
 // import styles from './Description.module.css'
+import ProductProp from "../interfaces/ProductProp"
 
-function Description({ product }) {
+function Description(props:ProductProp) {
+    const { product } = props
     return (
         <>
             <div className="flex flex-col p-2 basis-1/4">

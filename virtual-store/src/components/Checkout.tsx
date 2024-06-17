@@ -1,19 +1,9 @@
 import styles from './Checkout.module.css'
 import { useState, useRef, useEffect } from 'react';
+import ProductProp from '../interfaces/ProductProp';
 
-interface Product {
-    id: number
-    price: number;
-    quantity: number;
-    total: number;
-    units: number
-}
-
-interface CheckoutProps {
-    product: Product;
-}
-
-function Checkout({ product }: CheckoutProps) {
+function Checkout(props: ProductProp) {
+    const {product} = props
     const [quantity, setQuantity] = useState(1);
     const [button, setButton] = useState(false);
     const units = useRef(1)

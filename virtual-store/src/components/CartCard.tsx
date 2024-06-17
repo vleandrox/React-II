@@ -1,15 +1,16 @@
 import { useRef } from "react"
+import Product from "../interfaces/Product";
+import ProductProp from "../interfaces/ProductProp";
 
-export default function CartCard(product) {
-    const { id, title, image, price, color, quantity } = product;
-    const units = useRef();
+export default function CartCard(props:ProductProp) {
+    const { product } = props;
+    const { id, title, images, price, colors,units } = product;
+    const unitsToBuy = useRef();
     const manageUnits = () => {
-        const productsOnCart = JSON.parse(localStorage.getItem("cart") ?? "[]");
-        console.log(productsOnCart)
-        const one = productsOnCart.find((each) => each.id === id);
-        console.log(one)
+        const productsOnCart = JSON.parse(localStorage.getItem("cart") ?? "[]"); 
+        const one = productsOnCart.find((each: Product) => each.id === product.id);
         if (one) {
-            one.units = Number(units.current.value);
+            one.units = Number(unitsToBuy.current.value);
             localStorage.setItem("cart", JSON.stringify(productsOnCart));
         }
     };
@@ -18,19 +19,19 @@ export default function CartCard(product) {
         <>
 
             <article className="flex flex-row items-center bg-slate-100 px-[20px] rounded justify-around flex-wrap ">
-                <img className="w-[100px] h-[100px] object-cover rounded mr-[20px]" src={image} alt="ipad" />
+                <img className="w-[100px] h-[100px] object-cover rounded mr-[20px]" src={images[0]} alt="ipad" />
                 <div className="flex flex-1 flex-col gap-[10px] p-4">
-                    <strong className="font-bold text-lg">{title}{id}</strong><span className="text-gray-600 text-[15px] font-bold">- {color}</span>
+                    <strong className="font-bold text-lg">{title}{id}</strong><span className="text-gray-600 text-[15px] font-bold">- {colors[0]}</span>
                     <p className="text-gray-600 text-[15px] font-bold"> Celular de alta gamma de 12.9 pulgadas.</p>
                     <div className="text-gray-600 text-[15px] font-bold">
-                        <input className="padding-[5px] text-center w-[50px]"
-                            id={id}
+                        <input className="padding-[5px] text-center w-[50px]"                            
                             type="number"
                             name="quantity"
-                            defaultValue={quantity}
-                            ref={units}
+                            defaultValue={units}
+                            ref={unitsToBuy}
                             onChange={manageUnits}
                             min="1"
+                            id={id}
                         />
                     </div>
                 </div>

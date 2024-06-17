@@ -1,6 +1,9 @@
+interface Props{
+    total: number
+}
 
-
-function CartResume({total}) {
+function CartResume(props: Props) {
+    const {total} = props;
     return (        
         <div className="flex flex-col flex-grow basis-[30%] p-[15px] gap-[20px] rounded border bg-slate-100 h-max ">
             <div className="pb-1">
@@ -11,7 +14,12 @@ function CartResume({total}) {
                 </div>
                 <small className="font-bold text-[14px] text-gray-700">Incluye impuesto PAIS y percepción AFIP.</small>
             </div>
-            <button className="w-[100%] p-[10px] text-[16px] font-bold bg-red-500 text-white rounded border cursor-pointer" id="buy" type="button">COMPRAR</button>
+            <button 
+                className="w-[100%] p-[10px] text-[16px] font-bold bg-red-500 text-white rounded border cursor-pointer" 
+                id="buy" 
+                type="button">
+                COMPRAR
+            </button>
         </div>
     )
 }
