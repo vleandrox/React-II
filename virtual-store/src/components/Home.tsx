@@ -3,18 +3,26 @@ import Header from './Header'
 import Hero from './Hero'
 import ProductCard from './ProductCard'
 import Footer from './Footer'
-import products from '../assets/products.js'
+// import products from '../assets/products.js'
 import { OnSaleSlide } from './OnSale.js'
-import { useState } from 'react'
 import Product from '../interfaces/Product.js'
-
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 function Home() {
+
+    const [products,setProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+        axios.get("/products.json")
+            .then((response) => setProducts(response.data))
+            .catch((error) => console.log(error))
+    }, []);
+
     const [from, setFrom] = useState(0);
     const [to, setTo] = useState(8);
 
     const totalPages = Math.ceil(products.length / 8);// calcular total de paginas
-    console.log(totalPages)
 
     const handlePageClick = (pageNumber) => {
         const newFrom = (pageNumber - 1) * 8;

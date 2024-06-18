@@ -7,4 +7,5 @@ export default interface Product {
     units?:number;
     images: Array<string>;
     colors: Array<string>;
+    onsale: boolean;
  }
