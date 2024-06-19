@@ -21,6 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false
   },
+  //HICE UN CAMBIO AQUI ["SRC"] = ESTADO NORMAL
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

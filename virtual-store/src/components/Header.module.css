@@ -31,6 +31,7 @@ header {
   padding: 10px;
   border-radius: 5px;
   border: none;
+  color:black; 
 }
 .header-social ul {
   display: flex;

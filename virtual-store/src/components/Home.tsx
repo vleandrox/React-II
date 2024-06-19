@@ -8,16 +8,23 @@ import { OnSaleSlide } from './OnSale.js'
 import Product from '../interfaces/Product.js'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 function Home() {
 
     const [products,setProducts] = useState<Product[]>([]);
 
+    const text = useSelector(store => store.products.text);
     useEffect(() => {
         axios.get("/products.json")
-            .then((response) => setProducts(response.data))
+            .then((response) => {
+                const filterData = response.data.filter(each => each.title.toLowerCase().includes(text.toLowerCase()));
+                setProducts(filterData);
+
+            })
             .catch((error) => console.log(error))
-    }, []);
+    }, [text]);
+    console.log(text);
 
     const [from, setFrom] = useState(0);
     const [to, setTo] = useState(8);
@@ -31,6 +38,9 @@ function Home() {
         setTo(newTo);
     }
     const visibleProducts = products.slice(from, to);
+
+    
+
     return (
         <>
             <Header></Header>
