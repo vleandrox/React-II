@@ -10,4 +10,16 @@ const captureText = createAction(
 )
 
 const productsActions = { captureText };
+
+const calcularTotal = createAction(
+    "CALCULAR_TOTAL", 
+    (obj) => {
+        return {
+            payload:{ products : obj.products }
+        }
+    }
+)
 export default productsActions
+export { captureText,calcularTotal }
+
+
