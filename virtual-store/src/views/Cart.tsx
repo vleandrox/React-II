@@ -6,16 +6,43 @@ import CartCard from '../components/CartCard'
 import CartResume from '../components/CartResume'
 import { useEffect, useState } from 'react'
 import Product from '../interfaces/Product'
+import { useDispatch } from 'react-redux'
+import { calcularTotal } from '../store/actions/products'
 
 function Cart() {
     const [productsOnCart, setProductsOnCart] = useState([]);
-    
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        if (localStorage.getItem("cart")) {
-            const products = JSON.parse(localStorage.getItem("cart"));
-            setProductsOnCart(products);
+        const products = localStorage.getItem("cart");
+        if (products) {
+           setProductsOnCart(JSON.parse(products));
+           dispatch(calcularTotal({ products: JSON.parse(products) }));
         }
-    },[]);
+     }, [dispatch]);
+
+    // useEffect(() => {
+    //     const storedCart = localStorage.getItem("cart");
+    //     console.log(storedCart);
+    //     if (storedCart) {
+    //         const products = JSON.parse(storedCart);
+    //         console.log(products);
+    //         setProductsOnCart(products);
+    //         dispatch(calcularTotal({ products }));            
+    //     } else {
+    //         setProductsOnCart([]);
+    //         console.log("No hay productos en el carrito");
+    //     }
+    // }, [dispatch]);
+    
+
+    // useEffect(() => {
+    //     if (localStorage.getItem("cart")) {
+    //         const products = JSON.parse(localStorage.getItem("cart"));
+    //         setProductsOnCart(products);
+    //         dispatch(calcularTotal({ products }));            
+    //     }
+    // },[]);
 
     return (
         <>
@@ -24,12 +51,11 @@ function Cart() {
             <main className={styles["main-cart"]}>
                 <div className={styles["cartproduct-container"]}>
                     <div className="flex flex-grow basis-[60%] flex-col gap-[20px]">
-                        {productsOnCart.map((each:Product) => (
+                        {productsOnCart.map((each: Product) => (
                             <CartCard key={each.id} product={each}></CartCard>
                         ))}
                         {/* <CartCard title="iPad 14 pro" color="black" price="800000" image="https://i.postimg.cc/kX8PKZpq/ipad.jpg" /> */}
                     </div>
-
                     {/* <div className={styles["product-list"]}>
                         <article className={styles["product-card"]}>
                             <img className={styles["product-img"]} src="https://i.postimg.cc/kX8PKZpq/ipad.jpg" alt="ipad" />
@@ -65,7 +91,7 @@ function Cart() {
                             <strong className={styles["price"]}>AR$ $800000</strong>
                         </article>
                     </div> */}
-                    <CartResume total={7340}></CartResume>
+                    <CartResume></CartResume>
                     {/* <div className={styles["cart-resume"]}>
                         <div className={styles["cart-data"]}>
                             <h2 className={styles["cart-title"]}><span>Resumen </span><span>del </span><span>pedido</span></h2>

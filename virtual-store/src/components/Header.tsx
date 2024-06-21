@@ -1,13 +1,24 @@
 import styles from './Header.module.css'
 import NavBar from './NavBar';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import productsActions from '../store/actions/products';
 
 const { captureText } = productsActions
 
+
+
+
 function Header() {
+
+  const location = useLocation();
+  const pathname = location.pathname;
+  console.log(location.pathname);
+
+  const textStore = useSelector(store => store.products.text);
+  console.log(textStore);
+  
   const text = useRef();
   const dispatch = useDispatch();
   const setText = () => {
@@ -22,15 +33,26 @@ function Header() {
         </Link>
         <div className={styles["header-form"]}>
           <form>
-            <input
-              className={styles["header-input"]}
-              type="text"
-              placeholder="Search"
-              id="search"
-              ref={text}
-              onChange={setText}
-            />
+            {
+
+              pathname === "/" && 
+              <input
+                defaultValue={textStore}
+                className={styles["header-input"]}
+                type="text"
+                placeholder="Search"
+                id="search"
+                ref={text}
+                onChange={setText}
+              />
+
+            }
+
           </form>
+
+
+
+
         </div>
         <div className={styles["header-social"]}>
           <ul>
