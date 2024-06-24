@@ -8,9 +8,6 @@ const captureText = createAction(
         }
     }
 )
-
-const productsActions = { captureText };
-
 const calcularTotal = createAction(
     "CALCULAR_TOTAL", 
     (obj) => {
@@ -19,7 +16,10 @@ const calcularTotal = createAction(
         }
     }
 )
-export default productsActions
-export { captureText,calcularTotal }
+const limpiarCarrito = createAction("LIMPIAR_CARRITO")
+
+const productsActions = { captureText };
+export default productsActions;
+export { captureText,calcularTotal,limpiarCarrito }
 
 
