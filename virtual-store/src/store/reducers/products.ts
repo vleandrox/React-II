@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import productsActions from "../actions/products";
 import { calcularTotal } from "../actions/products";
+import { limpiarCarrito } from "../actions/products";
 
 const { captureText } = productsActions;
 
@@ -22,7 +23,14 @@ const productsReducer = createReducer(initialState, (builder) => {
       total,
     };
     return newState;    
-  });
+  }).addCase(limpiarCarrito, (state) => {
+    const newState = {
+      ...state,
+      total:0
+    };
+    return newState;
+  })
+  ;
 });
 
 export default productsReducer;

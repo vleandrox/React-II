@@ -1,13 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
+import { limpiarCarrito } from "../store/actions/products";
 
 // interface Props{
 //     total: number
 // }
-
-function CartResume() {
+interface Props {
+    onFinalizarCompra: () => void;
+  }
+function CartResume({ onFinalizarCompra }: Props) {
+ 
     const total = useSelector(store=>store.products.total);
     console.log(total);
     // const {totales} = props;
+ 
     return (        
         <div className="flex flex-col flex-grow basis-[30%] p-[15px] gap-[20px] rounded border bg-slate-100 h-max ">
             <div className="pb-1">
@@ -21,7 +26,8 @@ function CartResume() {
             <button 
                 className="w-[100%] p-[10px] text-[16px] font-bold bg-red-500 text-white rounded border cursor-pointer" 
                 id="buy" 
-                type="button">
+                type="button"
+                onClick={onFinalizarCompra}>
                 COMPRAR
             </button>
         </div>
